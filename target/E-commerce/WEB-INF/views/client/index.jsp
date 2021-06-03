@@ -8,6 +8,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 
+
 <c:url value = "/resources/client/assets" var="url"/>
 <!-- Start header section -->
 <jsp:include page = "header/mainHeader.jsp" flush = "true" />
@@ -260,7 +261,7 @@
                                 <!-- / electronic product category -->
                             </div>
                             <div class="more-product">
-                                <a class="aa-browse-btn" href="<c:url value = "/product"/>">Xem Tất Cả Sản Phẩm <span class="fa fa-long-arrow-right"></span></a>
+                                <a class="aa-browse-btn" href="<c:url value = ""/>">Xem Tất Cả Sản Phẩm <span class="fa fa-long-arrow-right"></span></a>
                             </div>
 
 
@@ -425,7 +426,7 @@
                             <!-- / latest product category -->
                         </div>
                         <div class="more-product">
-                            <a class="aa-browse-btn" href="<c:url value = "/product"/>">Xem Tất Cả Sản Phẩm <span class="fa fa-long-arrow-right"></span></a>
+                            <a class="aa-browse-btn" href="<c:url value = ""/>">Xem Tất Cả Sản Phẩm <span class="fa fa-long-arrow-right"></span></a>
                         </div>
                     </div>
                 </div>
