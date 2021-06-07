@@ -1,3 +1,6 @@
+
+
+
 <%-- 
     Document   : index
     Created on : May 5, 2020, 10:57:00 PM
@@ -95,7 +98,7 @@
 
             <!-- single sidebar -->
             <div class="aa-sidebar-widget">
-              <h3>Sản phẩm gần đây</h3>
+              <h3>Sản phẩm giảm giá</h3>
               <div class="aa-recently-views">
                 <ul>
                  <c:forEach items="${productlist}" var="product" end="2">

@@ -22,7 +22,7 @@ public class ProductEntity {
 	private String productName;
 	
 	@OneToMany(mappedBy = "product")
-	private List<PromotionEntity> promotion;
+	private List<CategoryEntity> category;
 	
 	@OneToMany(mappedBy = "product")
 	private List<OrderDetailsEntity> orderdetails;
@@ -34,12 +34,12 @@ public class ProductEntity {
 		super();
 	}
 
-	public ProductEntity(int productId, String productName, List<PromotionEntity> promotion,
+	public ProductEntity(int productId, String productName, List<CategoryEntity> category,
 			List<OrderDetailsEntity> orderdetails, List<ProductDetailsEntity> productdetails) {
 		super();
 		this.productId = productId;
 		this.productName = productName;
-		this.promotion = promotion;
+		this.category = category;
 		this.orderdetails = orderdetails;
 		this.productdetails = productdetails;
 	}
@@ -60,12 +60,12 @@ public class ProductEntity {
 		this.productName = productName;
 	}
 
-	public List<PromotionEntity> getPromotion() {
-		return promotion;
+	public List<CategoryEntity> getPromotion() {
+		return category;
 	}
 
-	public void setPromotion(List<PromotionEntity> promotion) {
-		this.promotion = promotion;
+	public void setPromotion(List<CategoryEntity> category) {
+		this.category = category;
 	}
 
 	public List<OrderDetailsEntity> getOrderdetails() {
@@ -86,7 +86,7 @@ public class ProductEntity {
 
 	@Override
 	public String toString() {
-		return "ProductEntity [productId=" + productId + ", productName=" + productName + ", promotion=" + promotion
+		return "ProductEntity [productId=" + productId + ", productName=" + productName + ", category=" + category
 				+ ", orderdetails=" + orderdetails + ", productdetails=" + productdetails + "]";
 	}
 	

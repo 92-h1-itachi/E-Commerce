@@ -35,14 +35,14 @@ public class AccountEntity {
 	
 	@ManyToOne
 	@JoinColumn(name = "customerId")
-	private CustomerEntity customer;
+	private PersonEntity customer;
 
 	public AccountEntity() {
 		super();
 	}
 
 	public AccountEntity(int accountId, String accountName, String password, List<OrdersEntity> orders,
-			UserRoleEntity userRole, CustomerEntity customer) {
+			UserRoleEntity userRole, PersonEntity customer) {
 		super();
 		this.accountId = accountId;
 		this.accountName = accountName;
@@ -92,11 +92,11 @@ public class AccountEntity {
 		this.userRole = userRole;
 	}
 
-	public CustomerEntity getCustomer() {
+	public PersonEntity getCustomer() {
 		return customer;
 	}
 
-	public void setCustomer(CustomerEntity customer) {
+	public void setCustomer(PersonEntity customer) {
 		this.customer = customer;
 	}
 

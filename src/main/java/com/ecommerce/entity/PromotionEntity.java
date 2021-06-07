@@ -1,5 +1,7 @@
 package com.ecommerce.entity;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,19 +22,28 @@ public class PromotionEntity {
 	@NotEmpty
 	private String promotionName;
 	
+	@NotEmpty
+	private Date starDate;
+	
+	@NotEmpty
+	private Date andDate;
+	
 	@ManyToOne
-	@JoinColumn(name = "productId")
-	private ProductEntity product;
+	@JoinColumn(name = "productdetailsId")
+	private ProductDetailsEntity productdetails;
 
 	public PromotionEntity() {
 		super();
 	}
 
-	public PromotionEntity(int promotionId, String promotionName, ProductEntity product) {
+	public PromotionEntity(int promotionId, String promotionName, Date starDate, Date andDate,
+			ProductDetailsEntity productdetails) {
 		super();
 		this.promotionId = promotionId;
 		this.promotionName = promotionName;
-		this.product = product;
+		this.starDate = starDate;
+		this.andDate = andDate;
+		this.productdetails = productdetails;
 	}
 
 	public int getPromotionId() {
@@ -51,19 +62,36 @@ public class PromotionEntity {
 		this.promotionName = promotionName;
 	}
 
-	public ProductEntity getProduct() {
-		return product;
+	public Date getStarDate() {
+		return starDate;
 	}
 
-	public void setProduct(ProductEntity product) {
-		this.product = product;
+	public void setStarDate(Date starDate) {
+		this.starDate = starDate;
+	}
+
+	public Date getAndDate() {
+		return andDate;
+	}
+
+	public void setAndDate(Date andDate) {
+		this.andDate = andDate;
+	}
+
+	public ProductDetailsEntity getProductdetails() {
+		return productdetails;
+	}
+
+	public void setProductdetails(ProductDetailsEntity productdetails) {
+		this.productdetails = productdetails;
 	}
 
 	@Override
 	public String toString() {
-		return "PromotionEntity [promotionId=" + promotionId + ", promotionName=" + promotionName + ", product="
-				+ product + "]";
+		return "PromotionEntity [promotionId=" + promotionId + ", promotionName=" + promotionName + ", starDate="
+				+ starDate + ", andDate=" + andDate + ", productdetails=" + productdetails + "]";
 	}
+	
 	
 	
 }

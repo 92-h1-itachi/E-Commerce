@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
  /*  response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
   response.setHeader("Pragma" , "no-cache");
@@ -17,7 +18,7 @@
 
         <div class="row mt-3">
           <div class="col-lg-12">
-            <button class="add-catalog"><a href="${pageContext.request.contextPath}/admin/product/add">Thêm sản phẩm</a></button>
+            <button class="add-catalog"><a href="${pageContext.request.contextPath}/productDetails/add">Thêm sản phẩm</a></button>
           </div>
           <div class="col-lg-12">
             <div class="card">
@@ -27,7 +28,7 @@
                   <table class="table table-striped">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">STT</th>
                         <th scope="col">Tên sản phẩm</th>
                         <th scope="col">Hình ảnh</th>
                         <th scope="col">ID danh mục</th>
@@ -39,11 +40,11 @@
                       </tr>
                     </thead>
                     <tbody>
-                     <c:forEach items="${productlist}" var="product">
+                     <c:forEach items="${productDetails}" var="product">
                       <tr>
                         <th scope="row">${product.id }</th>
-                        <td>${product.name }</td>
-                        <td><img style="    width: 110px;height: 67px; object-fit: cover;border: 1px solid #fff;" src="${pageContext.request.contextPath}/view/client/assets/images/products/img-test/${product.image_link}" alt="${product.name}"></td>
+                        <td>${product.name}</td>
+                        <td>${product.name}</td>
                         <td>${product.catalog_id }</td>
                         <td>${product.price }</td>
                         <td>

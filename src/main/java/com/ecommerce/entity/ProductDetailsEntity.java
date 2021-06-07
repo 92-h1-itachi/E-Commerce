@@ -29,6 +29,9 @@ public class ProductDetailsEntity implements Serializable {
 
 	@OneToMany(mappedBy = "productDetails")
 	private List<ImagesEntity> images;
+	
+	@OneToMany(mappedBy = "productdetails")
+	private List<PromotionEntity> promotion;
 
 	@ManyToOne
 	@JoinColumn(name = "productId")
@@ -51,17 +54,21 @@ public class ProductDetailsEntity implements Serializable {
 	}
 
 	public ProductDetailsEntity(int productdetailsId, String productDetailsName, double prince,
-			List<ImagesEntity> images, ProductEntity product, RamEntity ram, SizeEntity size, ColorEntity color) {
+			List<ImagesEntity> images, List<PromotionEntity> promotion, ProductEntity product, RamEntity ram,
+			SizeEntity size, ColorEntity color) {
 		super();
 		this.productdetailsId = productdetailsId;
 		this.productDetailsName = productDetailsName;
 		this.prince = prince;
 		this.images = images;
+		this.promotion = promotion;
 		this.product = product;
 		this.ram = ram;
 		this.size = size;
 		this.color = color;
 	}
+
+
 
 	public int getProductdetailsId() {
 		return productdetailsId;
@@ -126,12 +133,23 @@ public class ProductDetailsEntity implements Serializable {
 	public void setColor(ColorEntity color) {
 		this.color = color;
 	}
+	
+
+	public List<PromotionEntity> getPromotion() {
+		return promotion;
+	}
+
+	public void setPromotion(List<PromotionEntity> promotion) {
+		this.promotion = promotion;
+	}
 
 	@Override
 	public String toString() {
 		return "ProductDetailsEntity [productdetailsId=" + productdetailsId + ", productDetailsName="
-				+ productDetailsName + ", prince=" + prince + ", images=" + images + ", product=" + product + ", ram="
-				+ ram + ", size=" + size + ", color=" + color + "]";
+				+ productDetailsName + ", prince=" + prince + ", images=" + images + ", promotion=" + promotion
+				+ ", product=" + product + ", ram=" + ram + ", size=" + size + ", color=" + color + "]";
 	}
+
+	
 
 }
