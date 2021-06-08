@@ -27,13 +27,20 @@
 					<ul class="nav navbar-nav">
 						<li><a href="<c:url value="/" />">TRANG CHỦ</a></li>
 						<li><a href="<c:url value="/introduce" />">GIỚI THIỆU</a></li>
-						<li><a href="<c:url value="/product" />">SẢN PHẨM</a>
-							<%-- <ul class="dropdown-menu">
-								<li><a href="<c:url value="product.jsp" />">Iphone</a></li>
-								<li><a href="<c:url value="product.jsp" />">SamSung</a></li>
-								<li><a href="<c:url value="product.jsp" />">Nokia</a></li>
-								<li><a href="<c:url value="product.jsp" />">MẬT ONG</a></li>
-							</ul> --%>
+						<li><a class="dropdown-toggle" data-toggle="dropdown" href="<c:url value="/product" />">SẢN PHẨM </a>
+						<c:forEach items="${listcate}" var="a">
+							<ul class="dropdown-menu">
+							       <li><a href="<c:url value="#" />">${a.categoryName }</a></li>
+							</ul>
+						</c:forEach>
+						
+							
+							
+								<%-- 
+								<li><a href="<c:url value="#" />">SamSung</a></li>
+								<li><a href="<c:url value="#" />">Nokia</a></li>
+								<li><a href="<c:url value="#" />">Huawei</a></li> --%>
+							
 						</li>
 						<li><a href="<c:url value="/" />">TIN TỨC</a></li>
 						<li><a href="<c:url value="/security" />">CHÍNH SÁCH</a></li>

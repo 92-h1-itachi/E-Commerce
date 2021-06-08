@@ -26,6 +26,14 @@ public class ProductDetailsEntity implements Serializable {
 
 	@NotEmpty
 	private double prince;
+	
+	@NotEmpty
+	private String status;
+	
+	@NotEmpty
+	private int numberProduct;
+		
+	
 
 	@OneToMany(mappedBy = "productDetails")
 	private List<ImagesEntity> images;
@@ -53,13 +61,18 @@ public class ProductDetailsEntity implements Serializable {
 		super();
 	}
 
-	public ProductDetailsEntity(int productdetailsId, String productDetailsName, double prince,
-			List<ImagesEntity> images, List<PromotionEntity> promotion, ProductEntity product, RamEntity ram,
-			SizeEntity size, ColorEntity color) {
+
+
+
+	public ProductDetailsEntity(int productdetailsId, String productDetailsName, double prince, String status,
+			int numberProduct, List<ImagesEntity> images, List<PromotionEntity> promotion, ProductEntity product,
+			RamEntity ram, SizeEntity size, ColorEntity color) {
 		super();
 		this.productdetailsId = productdetailsId;
 		this.productDetailsName = productDetailsName;
 		this.prince = prince;
+		this.status = status;
+		this.numberProduct = numberProduct;
 		this.images = images;
 		this.promotion = promotion;
 		this.product = product;
@@ -67,6 +80,7 @@ public class ProductDetailsEntity implements Serializable {
 		this.size = size;
 		this.color = color;
 	}
+
 
 
 
@@ -142,13 +156,48 @@ public class ProductDetailsEntity implements Serializable {
 	public void setPromotion(List<PromotionEntity> promotion) {
 		this.promotion = promotion;
 	}
+	
+	
+
+	public String getStatus() {
+		return status;
+	}
+
+
+
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+
+
+	public int getNumberProduct() {
+		return numberProduct;
+	}
+
+
+
+
+	public void setNumberProduct(int numberProduct) {
+		this.numberProduct = numberProduct;
+	}
+
+
+
 
 	@Override
 	public String toString() {
 		return "ProductDetailsEntity [productdetailsId=" + productdetailsId + ", productDetailsName="
-				+ productDetailsName + ", prince=" + prince + ", images=" + images + ", promotion=" + promotion
-				+ ", product=" + product + ", ram=" + ram + ", size=" + size + ", color=" + color + "]";
+				+ productDetailsName + ", prince=" + prince + ", status=" + status + ", numberProduct=" + numberProduct
+				+ ", images=" + images + ", promotion=" + promotion + ", product=" + product + ", ram=" + ram
+				+ ", size=" + size + ", color=" + color + "]";
 	}
+
+
+
+
 
 	
 

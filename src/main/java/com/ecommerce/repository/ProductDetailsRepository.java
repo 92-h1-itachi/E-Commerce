@@ -19,4 +19,6 @@ public interface ProductDetailsRepository extends CrudRepository<ProductDetailsE
             + "or(p.size.sizeName = ?2) "
             + "or(p.color.colorName = ?3)")
     List<ProductDetailsEntity> searchProduct(String productDetails, String size, String color);
+	
+	ProductDetailsEntity findByproductdetailsId(int productdetailsId);
 }

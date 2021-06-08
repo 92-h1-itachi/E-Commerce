@@ -14,16 +14,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
+import com.ecommerce.entity.CategoryEntity;
 import com.ecommerce.entity.ProductDetailsEntity;
+import com.ecommerce.serviceIF.CategoryServiceIF;
 import com.ecommerce.serviceIF.ProductDetailsServiceIF;
 
 @Controller
 //@RequestMapping("productDetails")
-public class AdminProductDetailsController {
+public class DemoUserController {
 
 	@Autowired
 	private ProductDetailsServiceIF prodetailsservice;
+	
+	@Autowired
+	private CategoryServiceIF categoryservice;
 	
 	@GetMapping("/list")
     public String ListProductDetails(Model theModel){
@@ -79,4 +83,11 @@ public class AdminProductDetailsController {
 //			return "client/product-search";
 //			
 //		}
+	    
+		@GetMapping("/listCate")
+	    public String ListCategory(Model theModel){
+	        List<CategoryEntity> category = categoryservice.getCategory();
+	        theModel.addAttribute("listcate",category);
+	        return "admin/show-cate";
+		}
 }

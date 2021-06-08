@@ -12,64 +12,65 @@
               <div class="card-body">
                 <div class="card-title">Thêm sản phẩm</div>
                 <hr>
-                <mvc:form modelAttribute="productDetails" method="post"
-							action="${pageContext.request.contextPath}/saveNewProductDetails">
+                
+                
+						<mvc:form modelAttribute="productDetails" method="post"
+							action="${pageContext.request.contextPath}/saveNewProductDetails" enctype="multipart/form-data">
 
 
 							<div class="form-group">
 								<label for="input-1">Loại sản phẩm</label>
 								<div>
-									<mvc:select path="product.productId" items="${productList}" class="form-control"></mvc:select>
+									<mvc:select path="product.productId" items="${productList}"  class="form-control"></mvc:select>
 								</div>
 							</div>
 
-
 							<div class="form-group">
 								<label for="input-2">Tên Sản phẩm</label>
-								<mvc:input path="productDetailsName" required="true"
-									class="form-control" />
+								<mvc:input path="productDetailsName" required="true" class="form-control" />
 							</div>
 
 							<div class="form-group">
 								<label for="input-1">Mức giá</label>
 								<mvc:input path="prince" class="form-control" />
 							</div>
+							
+							<div class="form-group">
+								<label for="input-2">Số lượng Sản phẩm</label>
+								<mvc:input path="numberProduct" required="true" class="form-control" />
+							</div>
+							
+							<div class="form-group">
+								<label for="input-2">Trạng thái</label>
+								<mvc:input path="status" required="true" class="form-control" />
+							</div>
 
 							<div class="form-group">
 								<label for="input-2">Màu sản phẩm</label>
 								<div>
-									<mvc:select path="color.colorId" required="true"
-										items="${colorList}" class="form-control"></mvc:select>
+									<mvc:select path="color.colorId" required="true" items="${colorList}"  class="form-control"></mvc:select>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="input-2">Ram</label>
 								<div class="input-group">
-									<mvc:select path="ram.ramId" items="${ramList}" class="form-control"></mvc:select>
-
-
+									<mvc:select path="ram.ramId" items="${ramList}"  class="form-control"></mvc:select>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="input-2" class="col-form-label">Kích thước
-									màn hình</label>
+								<label for="input-2" class="col-form-label">Kích thước màn hình</label>
 								<div>
-									<mvc:select path="size.sizeId" items="${sizeList}" class="form-control"></mvc:select>
+									<mvc:select path="size.sizeId" items="${sizeList}"  class="form-control"></mvc:select>
 								</div>
 							</div>
 
 
 							<div class="form-group">
-								<label for="input-1">Ảnh sản phẩm</label>
-								 <input type="file"class="form-control" id="input-1" placeholder="Tên hình"name="file">
+								<label for="input-1">Ảnh sản phẩm</label> 
+								<input type="file" class="form-control"  name="file">
 							</div>
 							
-							<div class="form-group">
-							     <input path="created" type="date" style="display: none"
-										id="the-date" name="created" placeholder="Created" />
-							</div>			
-										
 							<div class="form-footer">
 								<button class="btn btn-danger">
 									<i class="fa fa-times"></i><a href="#">Hủy</a>
