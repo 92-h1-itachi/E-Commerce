@@ -15,9 +15,7 @@ import javax.validation.constraints.NotEmpty;
 @Table(name = "color")
 public class ColorEntity implements Serializable {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -28,17 +26,17 @@ public class ColorEntity implements Serializable {
 	private String colorName;
 	
 	@OneToMany(mappedBy = "color")
-	private List<ProductDetailsEntity> productDetails;
+	private List<ProductEntity> product;
 
 	public ColorEntity() {
 		super();
 	}
 
-	public ColorEntity(int colorId, String colorName, List<ProductDetailsEntity> productDetails) {
+	public ColorEntity(int colorId, String colorName, List<ProductEntity> product) {
 		super();
 		this.colorId = colorId;
 		this.colorName = colorName;
-		this.productDetails = productDetails;
+		this.product = product;
 	}
 
 	public int getColorId() {
@@ -57,12 +55,12 @@ public class ColorEntity implements Serializable {
 		this.colorName = colorName;
 	}
 
-	public List<ProductDetailsEntity> getProductDetails() {
-		return productDetails;
+	public List<ProductEntity> getProduc() {
+		return product;
 	}
 
-	public void setProductDetails(List<ProductDetailsEntity> productDetails) {
-		this.productDetails = productDetails;
+	public void setProduct(List<ProductEntity> product) {
+		this.product = product;
 	}
 
 	public static long getSerialversionuid() {
@@ -71,7 +69,7 @@ public class ColorEntity implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ColorEntity [colorId=" + colorId + ", colorName=" + colorName + ", productDetails=" + productDetails
+		return "ColorEntity [colorId=" + colorId + ", colorName=" + colorName + ", product=" + product
 				+ "]";
 	}
 

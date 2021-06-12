@@ -17,26 +17,31 @@ public class RamEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int ramId;
-	
+
 	@NotEmpty
 	private String ram;
-	
+
 	@OneToMany(mappedBy = "ram")
-	private List<ProductDetailsEntity> productDetails;
+	private List<ProductEntity> product;
 
 	public RamEntity() {
 		super();
 	}
 
-
-	public RamEntity(int ramId, String ram, List<ProductDetailsEntity> productDetails) {
+	public RamEntity(int ramId, String ram, List<ProductEntity> product) {
 		super();
 		this.ramId = ramId;
 		this.ram = ram;
-		this.productDetails = productDetails;
+		this.product = product;
 	}
 
+	public List<ProductEntity> getProduct() {
+		return product;
+	}
 
+	public void setProduct(List<ProductEntity> product) {
+		this.product = product;
+	}
 
 	public int getRamId() {
 		return ramId;
@@ -54,25 +59,4 @@ public class RamEntity {
 		this.ram = ram;
 	}
 
-	
-
-	public List<ProductDetailsEntity> getProductDetails() {
-		return productDetails;
-	}
-
-
-	public void setProductDetails(List<ProductDetailsEntity> productDetails) {
-		this.productDetails = productDetails;
-	}
-
-
-	@Override
-	public String toString() {
-		return "RamEntity [ramId=" + ramId + ", ram=" + ram + ", productDetails=" + productDetails + "]";
-	}
-
-
-	
-	
-	
 }

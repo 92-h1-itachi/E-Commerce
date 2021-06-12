@@ -21,4 +21,7 @@ public interface ProductDetailsRepository extends CrudRepository<ProductDetailsE
     List<ProductDetailsEntity> searchProduct(String productDetails, String size, String color);
 	
 	ProductDetailsEntity findByproductdetailsId(int productdetailsId);
+	
+	@Query(value = "SELECT * FROM ecomdb.productdetails order by rand()",nativeQuery = true)
+    List<ProductDetailsEntity> getShowHomeProduct();
 }

@@ -18,32 +18,31 @@ public class PromotionEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int promotionId;
-	
+
 	@NotEmpty
 	private String promotionName;
-	
+
 	@NotEmpty
 	private Date starDate;
-	
+
 	@NotEmpty
 	private Date andDate;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "productdetailsId")
-	private ProductDetailsEntity productdetails;
+	@JoinColumn(name = "productId")
+	private ProductEntity product;
 
 	public PromotionEntity() {
 		super();
 	}
 
-	public PromotionEntity(int promotionId, String promotionName, Date starDate, Date andDate,
-			ProductDetailsEntity productdetails) {
+	public PromotionEntity(int promotionId, String promotionName, Date starDate, Date andDate, ProductEntity product) {
 		super();
 		this.promotionId = promotionId;
 		this.promotionName = promotionName;
 		this.starDate = starDate;
 		this.andDate = andDate;
-		this.productdetails = productdetails;
+		this.product = product;
 	}
 
 	public int getPromotionId() {
@@ -78,20 +77,12 @@ public class PromotionEntity {
 		this.andDate = andDate;
 	}
 
-	public ProductDetailsEntity getProductdetails() {
-		return productdetails;
+	public ProductEntity getProduct() {
+		return product;
 	}
 
-	public void setProductdetails(ProductDetailsEntity productdetails) {
-		this.productdetails = productdetails;
+	public void setProduct(ProductEntity product) {
+		this.product = product;
 	}
 
-	@Override
-	public String toString() {
-		return "PromotionEntity [promotionId=" + promotionId + ", promotionName=" + promotionName + ", starDate="
-				+ starDate + ", andDate=" + andDate + ", productdetails=" + productdetails + "]";
-	}
-	
-	
-	
 }

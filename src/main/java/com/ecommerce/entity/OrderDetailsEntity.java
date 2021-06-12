@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
@@ -16,33 +17,31 @@ public class OrderDetailsEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int orderDetailsId;
-	
+
 	@NotEmpty
 	private int quantity;
-	
+
 	@NotEmpty
 	private double uniPrice;
-	
-	
+
 	@ManyToOne
 	@JoinColumn(name = "ordersId")
-	private OrdersEntity ordersO;
-	
-	@ManyToOne
-	@JoinColumn(name = "productId")
+	private OrdersEntity orders;
+
+	@OneToOne(mappedBy = "orderdetails")
 	private ProductEntity product;
 
 	public OrderDetailsEntity() {
 		super();
 	}
 
-	public OrderDetailsEntity(int orderDetailsId, int quantity, double uniPrice, OrdersEntity ordersO,
+	public OrderDetailsEntity(int orderDetailsId, int quantity, double uniPrice, OrdersEntity orders,
 			ProductEntity product) {
 		super();
 		this.orderDetailsId = orderDetailsId;
 		this.quantity = quantity;
 		this.uniPrice = uniPrice;
-		this.ordersO = ordersO;
+		this.orders = orders;
 		this.product = product;
 	}
 
@@ -70,12 +69,12 @@ public class OrderDetailsEntity {
 		this.uniPrice = uniPrice;
 	}
 
-	public OrdersEntity getOrdersO() {
-		return ordersO;
+	public OrdersEntity getOrders() {
+		return orders;
 	}
 
-	public void setOrdersO(OrdersEntity ordersO) {
-		this.ordersO = ordersO;
+	public void setOrders(OrdersEntity orders) {
+		this.orders = orders;
 	}
 
 	public ProductEntity getProduct() {
@@ -86,11 +85,9 @@ public class OrderDetailsEntity {
 		this.product = product;
 	}
 
-	@Override
-	public String toString() {
-		return "OrderDetailsEntity [orderDetailsId=" + orderDetailsId + ", quantity=" + quantity + ", uniPrice="
-				+ uniPrice + ", ordersO=" + ordersO + ", product=" + product + "]";
+	public double getTotal() {
+		double total = quantity * uniPrice;
+		return total;
 	}
-	
-	
+
 }

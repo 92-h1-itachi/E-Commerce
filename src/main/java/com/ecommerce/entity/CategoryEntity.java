@@ -1,11 +1,14 @@
 package com.ecommerce.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
@@ -20,15 +23,14 @@ public class CategoryEntity {
 	@NotEmpty
 	private String categoryName;
 	
-	@ManyToOne
-	@JoinColumn(name = "productId")
-	private ProductEntity product;
-
+	@OneToMany(mappedBy = "product")
+	private List<ProductEntity> product;
+	
 	public CategoryEntity() {
 		super();
 	}
 
-	public CategoryEntity(int categoryId, String categoryName, ProductEntity product) {
+	public CategoryEntity(int categoryId, String categoryName, List<ProductEntity> product) {
 		super();
 		this.categoryId = categoryId;
 		this.categoryName = categoryName;
@@ -51,11 +53,11 @@ public class CategoryEntity {
 		this.categoryName = categoryName;
 	}
 
-	public ProductEntity getProduct() {
+	public List<ProductEntity> getProduct() {
 		return product;
 	}
 
-	public void setProduct(ProductEntity product) {
+	public void setProduct(List<ProductEntity> product) {
 		this.product = product;
 	}
 
@@ -64,6 +66,10 @@ public class CategoryEntity {
 		return "CategoryEntity [categoryId=" + categoryId + ", categoryName=" + categoryName + ", product=" + product
 				+ "]";
 	}
+
+	
+
+	
 	
 	
 }

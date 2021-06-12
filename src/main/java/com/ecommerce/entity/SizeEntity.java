@@ -13,30 +13,35 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 @Table(name = "size")
 public class SizeEntity {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int sizeId;
-	
+
 	@NotEmpty
 	private String sizeName;
-	
+
 	@OneToMany(mappedBy = "size")
-	private List<ProductDetailsEntity> productDetails;
+	private List<ProductEntity> product;
 
 	public SizeEntity() {
 		super();
 	}
 
-
-	public SizeEntity(int sizeId, String sizeName, List<ProductDetailsEntity> productDetails) {
+	public SizeEntity(int sizeId, String sizeName, List<ProductEntity> product) {
 		super();
 		this.sizeId = sizeId;
 		this.sizeName = sizeName;
-		this.productDetails = productDetails;
+		this.product = product;
 	}
 
+	public List<ProductEntity> getProduct() {
+		return product;
+	}
 
+	public void setProduct(List<ProductEntity> product) {
+		this.product = product;
+	}
 
 	public int getSizeId() {
 		return sizeId;
@@ -54,25 +59,4 @@ public class SizeEntity {
 		this.sizeName = sizeName;
 	}
 
-	
-
-	public List<ProductDetailsEntity> getProductDetails() {
-		return productDetails;
-	}
-
-
-	public void setProductDetails(List<ProductDetailsEntity> productDetails) {
-		this.productDetails = productDetails;
-	}
-
-
-	@Override
-	public String toString() {
-		return "SizeEntity [sizeId=" + sizeId + ", sizeName=" + sizeName + ", productDetails=" + productDetails + "]";
-	}
-
-
-	
-	
-	
 }

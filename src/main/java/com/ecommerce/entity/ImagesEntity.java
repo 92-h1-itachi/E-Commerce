@@ -24,19 +24,19 @@ public class ImagesEntity {
 	private String imagesBig;
 
 	@ManyToOne
-	@JoinColumn(name = "productdetailsId")
-	private ProductDetailsEntity productDetails;
+	@JoinColumn(name = "productId")
+	private ProductEntity product;
 
 	public ImagesEntity() {
 		super();
 	}
 
-	public ImagesEntity(int imagesId, String imagesSmall, String imagesBig, ProductDetailsEntity productDetails) {
+	public ImagesEntity(int imagesId, String imagesSmall, String imagesBig, ProductEntity productDetails) {
 		super();
 		this.imagesId = imagesId;
 		this.imagesSmall = imagesSmall;
 		this.imagesBig = imagesBig;
-		this.productDetails = productDetails;
+		this.product = product;
 	}
 
 	public int getImagesId() {
@@ -63,19 +63,14 @@ public class ImagesEntity {
 		this.imagesBig = imagesBig;
 	}
 
-	public ProductDetailsEntity getProductDetails() {
-		return productDetails;
+	public ProductEntity getProduct() {
+		return product;
 	}
 
-	public void setProductDetails(ProductDetailsEntity productDetails) {
-		this.productDetails = productDetails;
+	public void setProduct(ProductEntity product) {
+		this.product = product;
 	}
 
-	@Override
-	public String toString() {
-		return "ImagesEntity [imagesId=" + imagesId + ", imagesSmall=" + imagesSmall + ", imagesBig=" + imagesBig
-				+ ", productDetails=" + productDetails + "]";
-	}
 	
 	
 

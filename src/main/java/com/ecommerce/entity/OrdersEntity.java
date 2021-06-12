@@ -27,11 +27,14 @@ public class OrdersEntity {
 	@NotEmpty
 	private String shippingAddress;
 	
+	@NotEmpty
+	private String orderStatus;
+	
 	@ManyToOne
 	@JoinColumn(name = "accountId")
 	private AccountEntity account;
 	
-	@OneToMany(mappedBy = "ordersO")
+	@OneToMany(mappedBy = "orders")
 	private List<OrderDetailsEntity> orderDetails;
 	
 	@OneToMany(mappedBy = "ordersP")
